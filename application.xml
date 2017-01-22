@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Application PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Application connector="sailpoint.connector.JDBCConnector" created="1471617139995" featuresString="DISCOVER_SCHEMA, PROVISIONING, SYNC_PROVISIONING, DIRECT_PERMISSIONS" icon="databaseIcon" name="Test App" profileClass="" type="JDBC">
+  <Attributes>
+    <Map>
+      <entry key="SQL" value="SELECT eid, concat(trim(user_first_name), &quot; &quot;, trim(user_last_name)) &apos;Display Name&apos;, user_first_name, user_last_name, user_email,active_in,updt_user_id,updt_ts,role_id FROM all_user a;"/>
+      <entry key="acctAggregationEnd">
+        <value>
+          <Date>1471630404801</Date>
+        </value>
+      </entry>
+      <entry key="acctAggregationStart">
+        <value>
+          <Date>1471630404283</Date>
+        </value>
+      </entry>
+      <entry key="aggregationMode">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="compositeDefinition"/>
+      <entry key="deltaTable"/>
+      <entry key="driverClass" value="com.mysql.jdbc.Driver"/>
+      <entry key="getDeltaSQL"/>
+      <entry key="group.SQL" value="select * from ( SELECT trim(r.role_id) roleId, r.role_name, r.active_in, r.updt_user_id, r.updt_ts, concat(trim(screen_name),&apos; (&apos;,sra.screen_code,&apos;) -         ViewAccess:&apos;,sra.view_access,&apos;;  EditAccess:&apos;, sra.edit_access,&apos;;  DeleteAccess:&apos;, sra.delete_access) &apos;Permissions&apos;, sra.updt_user_id &apos;screen_updt_user_id&apos;, sra.updt_ts &apos;screen_updt_ts&apos;, s.updt_user_id &apos;screen_name_updt_user_id&apos;, s.updt_ts &apos;screen_name_updt_ts&apos; FROM roles r left outer join screen_role_access sra on r.role_id = sra.role_id left  join screen s on sra.screen_code = s.screen_code) as tempTable order by roleId asc"/>
+      <entry key="group.aggregationMode">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.deltaTable"/>
+      <entry key="group.driverClass" value="com.mysql.jdbc.Driver"/>
+      <entry key="group.getDeltaSQL"/>
+      <entry key="group.indexColumns">
+        <value>
+          <List>
+            <String>roleId</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="group.isPermissionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.mergeColumns">
+        <value>
+          <List>
+            <String>Permissions</String>
+            <String>screen_name_updt_ts</String>
+            <String>screen_name_updt_user_id</String>
+            <String>screen_updt_ts</String>
+            <String>screen_updt_user_id</String>
+            <String>updt_ts</String>
+            <String>updt_user_id</String>
+            <String>view_access</String>
+          </List>
+        </value>
+      </entry>
+      <entry key="group.mergeRows">
+        <value>
+          <Boolean>true</Boolean>
+        </value>
+      </entry>
+      <entry key="group.password" value="1:p+qvPBo4Rig8PYlNWbr3Zg=="/>
+      <entry key="group.url" value="jdbc:mysql://localhost/test"/>
+      <entry key="group.useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="group.user" value="root"/>
+      <entry key="isPermissionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="mergeRows">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionAttributeScope" value="entitlements"/>
+      <entry key="nativeChangeDetectionAttributes"/>
+      <entry key="nativeChangeDetectionEnabled">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="nativeChangeDetectionOperations"/>
+      <entry key="partitionMode">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="partitionStatements"/>
+      <entry key="password" value="1:p+qvPBo4Rig8PYlNWbr3Zg=="/>
+      <entry key="provisionRule" value="globalRule"/>
+      <entry key="sysDescriptions">
+        <value>
+          <Map>
+            <entry key="en_US"/>
+          </Map>
+        </value>
+      </entry>
+      <entry key="templateApplication" value="JDBC Template"/>
+      <entry key="url" value="jdbc:mysql://localhost/test"/>
+      <entry key="useExecuteQuery">
+        <value>
+          <Boolean></Boolean>
+        </value>
+      </entry>
+      <entry key="user" value="root"/>
+    </Map>
+  </Attributes>
+  <CustomizationRule>
+    <Reference class="sailpoint.object.Rule" name="Rule-Customization-TestApp"/>
+  </CustomizationRule>
+  <Owner>
+    <Reference class="sailpoint.object.Identity" name="spadmin"/>
+  </Owner>
+  <Schemas>
+    <Schema created="1471624957503" displayAttribute="Display Name" identityAttribute="eid" instanceAttribute="" modified="1471630488641" nativeObjectType="account" objectType="account" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="eid" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="Display Name" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="user_first_name" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="user_last_name" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="user_email" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="active_in" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="updt_user_id" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="updt_ts" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" managed="true" name="role_id" schemaObjectType="group" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+    </Schema>
+    <Schema created="1471630234785" displayAttribute="role_name" identityAttribute="roleId" instanceAttribute="" modified="1471630488641" nativeObjectType="group" objectType="group" permissionsRemediationModificationType="None">
+      <AttributeDefinition name="roleId" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="role_name" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="active_in" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="updt_user_id" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="updt_ts" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition entitlement="true" multi="true" name="Permissions" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="screen_updt_user_id" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="screen_updt_ts" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="screen_name_updt_user_id" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+      <AttributeDefinition name="screen_name_updt_ts" type="string">
+        <Description></Description>
+      </AttributeDefinition>
+    </Schema>
+  </Schemas>
+</Application>
